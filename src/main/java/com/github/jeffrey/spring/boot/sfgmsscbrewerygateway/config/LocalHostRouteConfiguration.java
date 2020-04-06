@@ -25,6 +25,9 @@ public class LocalHostRouteConfiguration {
                 .route(r -> r.path("/api/v1/**")
                 .uri("http://localhost:8082")
                 .id("beer-inventory-service"))
+                .route(r -> r.path("/api/v1/**")
+                .uri("http://localhost:8083")
+                .id("beer-inventory-failover-service"))
                 .build();
     }
 }
