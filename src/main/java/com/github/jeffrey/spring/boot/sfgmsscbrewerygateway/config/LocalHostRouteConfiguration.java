@@ -5,6 +5,7 @@ import org.springframework.cloud.gateway.route.builder.RouteLocatorBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
+import org.springframework.http.codec.ServerCodecConfigurer;
 
 /**
  * Created by jeffreymzd on 4/5/20
@@ -13,6 +14,10 @@ import org.springframework.context.annotation.Profile;
 @Configuration
 public class LocalHostRouteConfiguration {
 
+    @Bean
+    public ServerCodecConfigurer serverCodecConfigurer() {
+        return ServerCodecConfigurer.create();
+    }
     @Bean
     public RouteLocator localHostRouteConfig(RouteLocatorBuilder builder) {
         return builder.routes()
